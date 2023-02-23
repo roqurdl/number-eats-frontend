@@ -560,9 +560,15 @@ export type CreateRestaurantOutput = {
   ok: Scalars['Boolean'];
 };
 
+export type CreateAccountMutationVariables = Types.Exact<{
+  createAccountInput: Types.CreateAccountInput;
+}>;
+
+
+export type CreateAccountMutation = { __typename?: 'Mutation', createAccount: { __typename?: 'CreateAccountOutput', ok: boolean, error?: string | null } };
+
 export type LoginMutationVariables = Types.Exact<{
-  email: Types.Scalars['String'];
-  password: Types.Scalars['String'];
+  loginInput: Types.LoginInput;
 }>;
 
 
