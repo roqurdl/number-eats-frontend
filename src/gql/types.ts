@@ -1,5 +1,3 @@
-import * as Types from 'types.ts';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -252,12 +250,12 @@ export type LoginOutput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  CreateDish: DeleteDishesOutput;
   createAccount: CreateAccountOutput;
   createDish: CreateDishesOutput;
   createOrder: CreateOrderOutput;
   createPayment: CreatePaymentOuput;
   createRestaurant: CreateRestaurantOutput;
+  deleteDish: DeleteDishesOutput;
   deleteRestaurant: DeleteRestaurantOutput;
   editDish: EditDishesOutput;
   editOrder: EditOrderOutput;
@@ -266,11 +264,6 @@ export type Mutation = {
   login: LoginOutput;
   takeOrder: TakeOrderOutput;
   verifyEmail: VerifyEmailOutput;
-};
-
-
-export type MutationCreateDishArgs = {
-  input: DeleteDishesInput;
 };
 
 
@@ -296,6 +289,11 @@ export type MutationCreatePaymentArgs = {
 
 export type MutationCreateRestaurantArgs = {
   input: CreateRestaurantInput;
+};
+
+
+export type MutationDeleteDishArgs = {
+  input: DeleteDishesInput;
 };
 
 
@@ -560,15 +558,15 @@ export type CreateRestaurantOutput = {
   ok: Scalars['Boolean'];
 };
 
-export type CreateAccountMutationVariables = Types.Exact<{
-  createAccountInput: Types.CreateAccountInput;
+export type CreateAccountMutationVariables = Exact<{
+  createAccountInput: CreateAccountInput;
 }>;
 
 
 export type CreateAccountMutation = { __typename?: 'Mutation', createAccount: { __typename?: 'CreateAccountOutput', ok: boolean, error?: string | null } };
 
-export type LoginMutationVariables = Types.Exact<{
-  loginInput: Types.LoginInput;
+export type LoginMutationVariables = Exact<{
+  loginInput: LoginInput;
 }>;
 
 

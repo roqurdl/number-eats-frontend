@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.7",
+    "@graphql-codegen/typescript-operations": "^3.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,10 +24,10 @@
   "scripts": {
     "tailwind:build": "tailwind build -i src/styles/tailwind.css -o src/styles/styles.css",
     "start": "npm run tailwind:build & react-scripts start",
-    "generate": "graphql-codegen",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate": "graphql-codegen"
   },
   "eslintConfig": {
     "extends": [
@@ -47,12 +48,13 @@
     ]
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^3.2.0",
+    "@graphql-codegen/cli": "3.2.1",
+    "@graphql-codegen/graphql-modules-preset": "^3.1.0",
     "@graphql-codegen/import-types-preset": "^2.2.6",
-    "@graphql-codegen/typed-document-node": "^3.0.1",
+    "@graphql-codegen/introspection": "^3.0.1",
     "@graphql-codegen/typescript": "^3.0.1",
-    "@graphql-codegen/typescript-operations": "^3.0.1",
-    "@graphql-codegen/typescript-type-graphql": "^2.3.6",
+    "@graphql-codegen/typescript-apollo-angular": "^3.5.6",
+    "@graphql-codegen/typescript-resolvers": "^3.1.0",
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.13",
