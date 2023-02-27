@@ -120,7 +120,7 @@ export const Login = () => {
         </form>
         <div>
           New to Number?{" "}
-          <Link to="/create-account" className="text-lime-600 hover:underline">
+          <Link to="/signup" className="text-lime-600 hover:underline">
             Create an Account
           </Link>
         </div>
