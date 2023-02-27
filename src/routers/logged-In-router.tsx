@@ -1,5 +1,13 @@
 import { gql, useQuery } from "@apollo/client";
 import { MeQuery } from "../gql/types";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { Restaurants } from "../screens/client/restaurants";
+import { NotFound } from "../screens/404";
 
 const ME_QUERY = gql`
   query me {
@@ -12,6 +20,12 @@ const ME_QUERY = gql`
   }
 `;
 
+const ClientRoutes = [
+  <Route path="/" exact>
+    <Restaurants />
+  </Route>,
+];
+
 export const LoggedInRouter = () => {
   const { data, loading, error } = useQuery<MeQuery>(ME_QUERY);
   if (!data || loading || error) {
@@ -22,8 +36,14 @@ export const LoggedInRouter = () => {
     );
   }
   return (
-    <div>
-      <h1>{data.me.email}</h1>
-    </div>
+    <Router>
+      <Switch>
+        {data.me.role === "Client" && ClientRoutes}
+        <Redirect from="/ex" to="/" />
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
