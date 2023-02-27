@@ -558,6 +558,11 @@ export type CreateRestaurantOutput = {
   ok: Scalars['Boolean'];
 };
 
+export type MeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MeQuery = { __typename?: 'Query', me: { __typename?: 'Users', id: number, email: string, role: UserRole, verified: boolean } };
+
 export type CreateAccountMutationVariables = Exact<{
   createAccountInput: CreateAccountInput;
 }>;
