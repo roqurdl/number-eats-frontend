@@ -563,6 +563,11 @@ video {
   pointer-events: none;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -609,6 +614,10 @@ video {
 
 .max-w-screen-sm {
   max-width: 640px;
+}
+
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
 .flex-col {

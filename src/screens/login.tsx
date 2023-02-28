@@ -8,6 +8,7 @@ import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
 import { LoginMutation, LoginMutationVariables } from "../gql/types";
 import { LOCALSTORAGE_TOKEN } from "../constants";
+import { numberLogo } from "../img/imgs";
 
 const LOGIN_MUTATION = gql`
   mutation login($loginInput: LoginInput!) {
@@ -70,7 +71,7 @@ export const Login = () => {
         <title>Login | Number Eats</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
-        {/* <img src={nuberLogo} className="w-52 mb-10" alt="Number Eats"/> */}
+        <img src={numberLogo} className="w-52 mb-10" alt="Number Eats" />
         <h4 className="w-full font-medium text-left text-3xl mb-5">
           Welcome back
         </h4>
