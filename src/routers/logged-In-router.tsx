@@ -8,10 +8,14 @@ import { Restaurants } from "../screens/client/restaurants";
 import { NotFound } from "../screens/404";
 import { Header } from "../components/header";
 import { useMe } from "../hooks/useMe";
+import { ConfirmEmail } from "../screens/user/confirm-email";
 
 const ClientRoutes = [
-  <Route path="/" exact>
+  <Route key={1} path="/" exact>
     <Restaurants />
+  </Route>,
+  <Route key={2} path="/confirm" exact>
+    <ConfirmEmail />
   </Route>,
 ];
 
