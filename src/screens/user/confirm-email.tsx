@@ -1,6 +1,7 @@
 import { gql, useApolloClient, useMutation } from "@apollo/client";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { useHistory } from "react-router-dom";
 import {
   VerifyEmailMutation,
   VerifyEmailMutationVariables,
@@ -19,6 +20,7 @@ const VERIFY_EMAIL_MUTATION = gql`
 export const ConfirmEmail = () => {
   const { data: userData } = useMe();
   const client = useApolloClient();
+  const history = useHistory();
   const onCompleted = (data: VerifyEmailMutation) => {
     const {
       verifyEmail: { ok },
@@ -27,7 +29,7 @@ export const ConfirmEmail = () => {
       client.writeFragment({
         id: `User:${userData.me.id}`,
         fragment: gql`
-          fragment VerifiedUser on User {
+          fragment VerifiedUser on Users {
             verified
           }
         `,
@@ -35,6 +37,8 @@ export const ConfirmEmail = () => {
           verified: true,
         },
       });
+      // await refetch(); Cach를 사용하지 않을 경우.
+      history.push("/");
     }
   };
   const [verifyEmail] = useMutation<
@@ -52,7 +56,7 @@ export const ConfirmEmail = () => {
         },
       },
     });
-  }, []);
+  }, [verifyEmail]);
   return (
     <div className="mt-52 flex flex-col items-center justify-center">
       <Helmet>

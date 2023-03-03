@@ -9,6 +9,7 @@ import { NotFound } from "../screens/404";
 import { Header } from "../components/header";
 import { useMe } from "../hooks/useMe";
 import { ConfirmEmail } from "../screens/user/confirm-email";
+import { EditProfile } from "../screens/user/edit-profile";
 
 const ClientRoutes = [
   <Route key={1} path="/" exact>
@@ -16,6 +17,9 @@ const ClientRoutes = [
   </Route>,
   <Route key={2} path="/confirm" exact>
     <ConfirmEmail />
+  </Route>,
+  <Route key={3} path="/edit-profile" exact>
+    <EditProfile />
   </Route>,
 ];
 
