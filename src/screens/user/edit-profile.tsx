@@ -36,9 +36,9 @@ export const EditProfile = () => {
       const { email: newEmail } = getValues();
       if (prevEmail !== newEmail) {
         client.writeFragment({
-          id: `User:${id}`,
+          id: `Users:${id}`,
           fragment: gql`
-            fragment EditedUser on User {
+            fragment EditedUser on Users {
               verified
               email
             }
